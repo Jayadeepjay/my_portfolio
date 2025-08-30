@@ -610,10 +610,97 @@ export default function Home() {
               >
                 <div className="bg-white dark:bg-gray-900 rounded-3xl px-8 py-7 border border-purple-200 dark:border-gray-800 relative overflow-hidden">
                   {/* Decorative floating shapes */}
-                  <span className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-purple-400/30 via-indigo-400/20 to-blue-400/10 rounded-full blur-2xl z-0"></s                  "scripts": {
-                    // ...existing scripts...
-                    "export": "next export"
-                  }join="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  <span className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-purple-400/30 via-indigo-400/20 to-blue-400/10 rounded-full blur-2xl z-0"></span>
+                  <span className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-tr from-blue-400/20 via-purple-400/10 to-indigo-400/30 rounded-full blur-2xl z-0"></span>
+                  <div className="relative z-10 flex flex-col items-center">
+                    <span className="block text-4xl mb-2 animate-bounce-slow">🚀</span>
+                    <span className="block font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-400 to-blue-500 text-center mb-4 tracking-wide drop-shadow-lg">Areas of Interest</span>
+                    <ul className="w-full flex flex-col gap-3 mt-2">
+                      <li className="flex items-center gap-3 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-50/80 via-indigo-50/60 to-blue-50/40 dark:from-purple-900/40 dark:via-indigo-900/30 dark:to-blue-900/20 shadow-sm border border-purple-100 dark:border-gray-800">
+                        <span className="text-xl">🤖</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-100">Artificial Intelligence & Machine Learning</span>
+                      </li>
+                      <li className="flex items-center gap-3 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-50/80 via-indigo-50/60 to-blue-50/40 dark:from-purple-900/40 dark:via-indigo-900/30 dark:to-blue-900/20 shadow-sm border border-purple-100 dark:border-gray-800">
+                        <span className="text-xl">🗣️</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-100">Natural Language Processing (NLP) & AI-Powered Applications</span>
+                      </li>
+                      <li className="flex items-center gap-3 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-50/80 via-indigo-50/60 to-blue-50/40 dark:from-purple-900/40 dark:via-indigo-900/30 dark:to-blue-900/20 shadow-sm border border-purple-100 dark:border-gray-800">
+                        <span className="text-xl">☁️</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-100">Cloud-Based Scalable Applications</span>
+                      </li>
+                      <li className="flex items-center gap-3 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-50/80 via-indigo-50/60 to-blue-50/40 dark:from-purple-900/40 dark:via-indigo-900/30 dark:to-blue-900/20 shadow-sm border border-purple-100 dark:border-gray-800">
+                        <span className="text-xl">🧑‍💻</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-100">Full-stack apps with AI integration</span>
+                      </li>
+                      <li className="flex items-center gap-3 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-50/80 via-indigo-50/60 to-blue-50/40 dark:from-purple-900/40 dark:via-indigo-900/30 dark:to-blue-900/20 shadow-sm border border-purple-100 dark:border-gray-800">
+                        <span className="text-xl">🛠️</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-100">Innovative AI Tools & Solutions</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <style jsx>{`
+                  .animate-bounce-slow {
+                    animation: bounce-slow 2.5s infinite;
+                  }
+                  @keyframes bounce-slow {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-10px); }
+                  }
+                `}</style>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  {/* ...existing code... */}
+
+  {/* Contact Section */}
+  <ContactSection />
+  {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <p className="text-lg font-semibold">{personalData.name}</p>
+              <p className="text-gray-400">{personalData.role}</p>
+            </div>
+            <div className="text-center md:text-right">
+              <p className="text-gray-400">
+                © {currentYear} {personalData.name}. All rights reserved.
+              </p>
+              <p className="text-sm text-gray-500 mt-1">
+                Designed and developed with ❤️
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Certificate Modal */}
+      {selectedCertificate && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setSelectedCertificate(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            className="relative max-w-4xl max-h-[90vh] mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedCertificate(null)}
+              className="absolute -top-4 -right-4 z-10 w-10 h-10 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
