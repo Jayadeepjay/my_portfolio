@@ -2,7 +2,7 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  // output: 'export',
   images: {
     remotePatterns: [
       {
@@ -12,7 +12,7 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    unoptimized: true,
+    // unoptimized: true,
   },
 };
 
