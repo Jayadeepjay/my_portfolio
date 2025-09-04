@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import '@n8n/chat/style.css';
+import { createChat } from '@n8n/chat';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -10,6 +12,7 @@ import ContactSection from './ContactSection';
 import CertificateCard from '../components/CertificateCard';
 import ProjectCard from '../components/ProjectCard';
 
+
 export default function Home() {
   const currentYear = new Date().getFullYear();
   const [scrolled, setScrolled] = useState(false);
@@ -18,41 +21,41 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-      
-      // Update active section based on scroll position with smoother detection
-      const sections = ['home', 'about', 'skills', 'projects', 'certificates', 'knowledge', 'contact'];
-      const scrollPosition = window.scrollY + 150; // Increased offset for better detection
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetBottom = offsetTop + element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    // Use throttled scroll listener for better performance
+    // Scroll event logic
     let ticking = false;
     const throttledHandleScroll = () => {
       if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 10);
+          const sections = ['home', 'about', 'skills', 'projects', 'certificates', 'knowledge', 'contact'];
+          const scrollPosition = window.scrollY + 150;
+          for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+              const offsetTop = element.offsetTop;
+              const offsetBottom = offsetTop + element.offsetHeight;
+              if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                setActiveSection(section);
+                break;
+              }
+            }
+          }
           ticking = false;
         });
         ticking = true;
       }
     };
-
     window.addEventListener('scroll', throttledHandleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', throttledHandleScroll);
+
+    // Initialize n8n chat widget
+    createChat({
+      webhookUrl: 'http://localhost:5678/webhook/7e39ca99-66ce-4e5f-aaa8-c522d3c4a353/chat'
+    });
+
+    return () => {
+      window.removeEventListener('scroll', throttledHandleScroll);
+      // No chat widget cleanup needed
+    };
   }, []);
 
   const scrollToSection = (sectionId) => {

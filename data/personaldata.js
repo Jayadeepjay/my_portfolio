@@ -1,6 +1,6 @@
 export const personalData = {
     name: "Jayadeep Keerthipati", // Replace with your actual name
-    role: "CSE(Artificial Intelligence and Machine Learning", // e.g., "Full Stack Developer", "Data Scientist", "UX Designer"
+    role: "CSE(Artificial Intelligence and Machine Learning)", // e.g., "Full Stack Developer", "Data Scientist", "UX Designer"
     email: "jayadeepnani4@gmail.com", // Replace with your actual email
     phone: "6304629751", // Replace with your phone number (optional)
     address: "Tirupati, Andhra Pradesh, India", // Replace with your location
