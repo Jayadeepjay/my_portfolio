@@ -49,7 +49,7 @@ export default function Home() {
 
     // Initialize n8n chat widget
     createChat({
-  webhookUrl: 'https://your-n8n-instance.com/webhook/xxxx/chat' // TODO: Replace with your real deployed n8n webhook URL
+  webhookUrl: 'http://localhost:5678/webhook/7e39ca99-66ce-4e5f-aaa8-c522d3c4a353/chat' // TODO: Replace with your real deployed n8n webhook URL
     });
 
     return () => {
