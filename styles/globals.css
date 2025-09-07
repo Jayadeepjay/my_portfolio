@@ -1,3 +1,31 @@
+/* Custom n8n chat toggle button style to match site theme */
+.n8n-chat-toggle {
+	background: linear-gradient(135deg, #a78bfa 0%, #6366f1 100%);
+	color: #fff !important;
+	border: none !important;
+	box-shadow: 0 4px 24px 0 rgba(99,102,241,0.18), 0 2px 8px 0 rgba(167,139,250,0.12);
+	border-radius: 1.5rem !important;
+	width: 64px !important;
+	height: 64px !important;
+	right: 2rem !important;
+	bottom: 2rem !important;
+	position: fixed !important;
+	z-index: 9999 !important;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+}
+.n8n-chat-toggle:hover {
+	box-shadow: 0 8px 32px 0 rgba(99,102,241,0.28), 0 4px 16px 0 rgba(167,139,250,0.18);
+	transform: scale(1.08);
+	background: linear-gradient(135deg, #6366f1 0%, #a78bfa 100%);
+}
+.n8n-chat-toggle svg {
+	width: 2rem !important;
+	height: 2rem !important;
+	color: #fff !important;
+}
 
 .n8n-chat-theme {
 	--chat--color-primary: #e74266;
