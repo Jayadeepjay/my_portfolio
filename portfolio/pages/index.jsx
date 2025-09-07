@@ -51,10 +51,6 @@ export default function Home() {
       }
     };
 
-    createChat({
-        webhookUrl: 'http://localhost:5678/webhook/7e39ca99-66ce-4e5f-aaa8-c522d3c4a353/chat' // TODO: Replace with your real deployed n8n webhook URL
-    });
-
     window.addEventListener('scroll', throttledHandleScroll, { passive: true });
     return () => window.removeEventListener('scroll', throttledHandleScroll);
   }, []);
